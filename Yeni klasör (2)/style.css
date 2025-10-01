@@ -1,0 +1,153 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+    margin: 0;
+    padding: 0;
+    background: #0a0f2c;
+    height: 100vh;
+    overflow-x: hidden;
+    font-family: sans-serif;
+    color: white;
+	
+}
+/* css ile manuel bir şekilde kar yapımı */ 
+.snowflake {
+    position: fixed;
+    top: -32px;
+    color: white;
+    font-size: 24px;
+    animation: fall linear infinite;
+    z-index: 0;
+}
+/*animasyonlu yazının özellikleri*/
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.5);
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-align: center;
+    animation: fadeInGlow 3s ease-in-out infinite;
+}
+/* parlayan ve yavaşça görünür hale gelen bir animasyon efekti vermek için fadeInGlow kullandım*/
+@keyframes fadeInGlow {
+    0% {
+        opacity: 0;
+        text-shadow: 0 0 0px white;
+    }
+    50% {
+        opacity: 1;
+        text-shadow: 0 0 20px white;
+    }
+    100% {
+        opacity: 0.8;
+        text-shadow: 0 0 5px white;
+    }
+}
+.container {
+    background: url("../../../../web/resim/ERKEKLER.jpg");
+    background-size: contain;
+    height: 150vh;
+    width: 110%;
+    position: absolute;
+    overflow: hidden;	
+}
+/*sayfanın üst kısmında yer alan bölüm*/
+.header {
+    position: sticky;
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   padding-top:16px;
+}
+/*nav menüsü*/
+.nav-list {
+  position: fixed;       
+  top: 5px;               
+  left: 0px;              
+  width: 100%;  
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style: none;
+  gap: 1rem;/*satırlar arası mesafe*/
+cursor: pointer;
+}
+
+.nav-list  li:hover {
+    color: black;
+}
+/*logo*/
+.logo {
+      width: 50px;
+      height: auto;
+      padding: 10px;
+	
+    }
+
+    .logo img {
+      max-width: 100%;
+      height: auto;
+		
+    }
+
+ /* footer kısmına yanı bir web sitesinin en alt kısmına footer-navbar şeklinde menü çubuğu ekledim.  */ 
+.footer-navbar {
+  background-color: #111;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.footer-navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.footer-navbar ul li {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer-navbar ul li:hover {
+  color: #4937C1;
+}
+
+/* responsive tasarım*/
+@media (max-width: 746px) { 
+    .nav-list {
+        flex-direction: column;
+        position: sticky;
+        top: 100%;
+        right: 0;
+        background-color: #0a0f2c;
+        width: 100%;
+        display: flex;
+        padding: 16px 32px;
+    }
+}
+/*kar efekti*/
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+	}
+}
